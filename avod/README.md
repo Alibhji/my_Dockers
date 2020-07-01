@@ -20,9 +20,6 @@ Download and extract it inside the Kiiti dataset path: --> [https://cloud.tsingh
 
 Run it:
 ``` 				
-$ nvidia-docker run -ti \ 
--v /home/mjamali/proj/OFT_3_2020/data/kitti/:/root/Kitti \
--v ~/proj/G_All_b/point_rcnn/avod/weight:/app/TLNet/avod/models\
-alibhji/tf1.3_gpu:avod  bash
+$ nvidia-docker run -ti -v /home/mjamali/proj/OFT_3_2020/data/kitti/:/root/Kitti -v ~/proj/G_All_b/point_rcnn/avod/weight:/app/TLNet/avod/models alibhji/tf1.3_gpu:avod  bash
 
 ``` 
