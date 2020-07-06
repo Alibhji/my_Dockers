@@ -3,8 +3,9 @@
 
 download weights from this links --> [https://cloud.tsinghua.edu.cn/f/6eb6b856efec42d19937/?dl=1 -O tlnet_pretrained.tar.gz]
 ```
-$ cd  [docker file directory]
-$ mkdir weights
+cd  [docker file directory]
+mkdir weights
+git clone https://github.com/Zengyi-Qin/TLNet.git 
 ``` 
 
 Download weights in tools directory: --> [https://drive.google.com/file/d/1aapMXBkSn5c5hNTDdRNI74Ptxfny7PuC/view?usp=sharing]
@@ -20,6 +21,5 @@ Download and extract it inside the Kiiti dataset path: --> [https://cloud.tsingh
 
 Run it:
 ``` 				
-$ nvidia-docker run -ti -v /home/mjamali/proj/OFT_3_2020/data/kitti/:/root/Kitti -v ~/proj/G_All_b/point_rcnn/avod/weight:/app/TLNet/avod/models alibhji/tf1.3_gpu:avod  bash
-
+nvidia-docker run -ti -v /home/mjamali/proj/OFT_3_2020/data/kitti/:/root/Kitti -v ~/proj/G_All_b/point_rcnn/avod/weight:/app/TLNet/avod/models -v /TLNet/scripts:/app/TLNet/scripts alibhji/tf1.3_gpu:avod  bash 
 ``` 
