@@ -95,23 +95,29 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends libbo
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz
 RUN tar -zxvf cmake-3.15.2.tar.gz && cd cmake-3.15.2 && ./bootstrap && make && sudo make install
 RUN cmake --version
+
+
+RUN git clone https://github.com/NVIDIA/apex && \
+	cd apex  && \
+	pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
+
 RUN cd spconv && python setup.py bdist_wheel
 RUN cd /app/spconv/dist && pip install *.whl
 
 RUN pip install setuptools==39.1.0
 RUN git clone https://github.com/poodarchu/nuscenes.git \
 && cd nuscenes\
-&& pip install -r  requirements.txt
-# \ && cd nuscenes && python setup.py install
+&& pip install -r  requirements.txt && \
+   python setup.py install
 
 RUN pip install -U setuptools
 RUN git clone https://github.com/poodarchu/Det3D.git \
 && cd Det3D\
 && pip install -r  requirements.txt
 
-RUN git clone https://github.com/NVIDIA/apex 
-#	cd apex  && \
-#	pip install -v --no-cache-dir ./
+
+
+
 
 RUN pip install pyaml  && \
 	sudo apt update && sudo apt install -y libsm6 libxext6 libxrender-dev  && \
@@ -121,7 +127,7 @@ RUN pip install pyaml  && \
 
 
 
-#RUN cd Det3D && python setup.py build develop
+RUN cd Det3D && python setup.py build develop
 
 
 #RUN echo "export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}" >> /home/user/.bashrc 
