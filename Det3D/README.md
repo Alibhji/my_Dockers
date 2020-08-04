@@ -1,14 +1,17 @@
 # Det3D
  Based on --> [https://github.com/poodarchu/Det3D]
  
+ 
+
 
 Build docker file:
 ```
+git clone https://github.com/poodarchu/Det3D.git
 sudo nvidia-docker build  -t "alibhji/cuda101_pytorch1.3.1:Det3D" .
 ``` 
 Run it:
 ``` 				
-nvidia-docker run -ti -v /home/mjamali/proj/OFT_3_2020/data/kitti/object:/data/Datasets/KITTI/Kitti/object  "alibhji/cuda101_pytorch1.3.1:Det3D"
+nvidia-docker run -ti -v /home/mjamali/proj/OFT_3_2020/data/kitti/object:/data/Datasets/KITTI/Kitti/object -v /home/mjamali/proj/G_All_b/point_rcnn/Det3D/Det3D/:/app/Det3D   "alibhji/cuda9_pytorch1.3.1:Det3D""
 ```
 
 
