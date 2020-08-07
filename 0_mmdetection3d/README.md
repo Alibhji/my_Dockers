@@ -58,6 +58,8 @@ by running the following code:
 ``` 
 [SECOND] [https://github.com/open-mmlab/mmdetection3d/blob/master/docs/benchmarks.md]
 ./tools/dist_train.sh configs/benchmark/hv_second_secfpn_4x8_80e_pcdet_kitti-3d-3class.py 4
+[PointPillars-3class]
+./tools/dist_train.sh configs/benchmark/hv_pointpillars_secfpn_4x8_80e_pcdet_kitti-3d-3class.py 8 --no-validate
 ```
 
 

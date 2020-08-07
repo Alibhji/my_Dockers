@@ -96,6 +96,10 @@ RUN cd spconv && python setup.py bdist_wheel
 RUN cd /app/spconv/dist && pip install *.whl
 RUN echo "export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}" >> /home/user/.bashrc 
 ENV CUDA_LIB_PATH=/usr/local/cuda-9.0/lib
+
+RUN cd spconv && \
+python setup.py develop
+
 WORKDIR /app/OpenPCDet
 
 #CMD echo $CUDA_LIB_PATH
