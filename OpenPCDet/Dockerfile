@@ -101,6 +101,14 @@ RUN cd spconv && \
 python setup.py develop
 
 WORKDIR /app/OpenPCDet
+RUN python setup.py develop
+
+RUN conda install --quiet --yes \
+    notebook\
+    jupyterhub\
+    jupyterlab && \
+    conda clean --all -f -y 
+#FROM jupyter/minimal-notebook
 
 #CMD echo $CUDA_LIB_PATH
 #CMD nvidia-smi
