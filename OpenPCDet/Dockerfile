@@ -103,6 +103,8 @@ RUN cd spconv && \
 python setup.py develop
 
 WORKDIR /app/OpenPCDet
+RUN sudo chmod 777 /app -R
+
 RUN python setup.py develop
 
 RUN conda install --quiet --yes \
@@ -112,7 +114,7 @@ RUN conda install --quiet --yes \
     conda clean --all -f -y 
 WORKDIR /app
 
-RUN sudo chmod 777 /app -R
+
 #FROM jupyter/minimal-notebook
 
 #CMD echo $CUDA_LIB_PATH
