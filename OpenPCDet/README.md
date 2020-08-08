@@ -6,6 +6,7 @@ Installation --> [https://github.com/open-mmlab/OpenPCDet/blob/master/docs/INSTA
 
 Build docker file:
 ```
+git clone https://github.com/open-mmlab/OpenPCDet.git
 sudo nvidia-docker build  -t "alibhji/cuda9_pytorch1.3.1:OpenPcDet" .
 ``` 
 Run it to have interactive terminal:
@@ -22,9 +23,11 @@ Run it to have jupyter:
 nvidia-docker run -ti  \
      -v /home/mjamali/proj/OFT_3_2020/data/kitti/object:/app/OpenPCDet/data/kitti \
 	 -v /home/mjamali/proj/G_All_b/point_rcnn/OpenPCDet/benchmark_models:/app/OpenPCDet/benchmark_models \
-	 -v /home/mjamali/proj/G_All_b/point_rcnn/OpenPCDet/myNotebooks:/app/OpenPCDet/myNotebooks 
+	 -v myNotebooks /app/OpenPCDet/myNotebooks \
 	 -p 8888:8888 \
-     "alibhji/cuda9_pytorch1.3.1:OpenPcDet" jupyter notebook --ip=0.0.0.0 --no-browser
+     "alibhji/cuda9_pytorch1.3.1:OpenPcDet" \
+	 jupyter notebook --ip=0.0.0.0 --no-browser
+	 
 ``` 
 
   

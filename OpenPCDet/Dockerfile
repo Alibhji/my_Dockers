@@ -83,7 +83,9 @@ RUN CPATH=/usr/local/cuda/include:$CPATH \
 # && pip install torch-geometric
 
 # Set the default command to python3.
-RUN git clone https://github.com/open-mmlab/OpenPCDet.git
+#RUN git clone https://github.com/open-mmlab/OpenPCDet.git
+COPY OpenPCDet /app/OpenPCDet
+
 RUN cd OpenPCDet && pip install -r requirements.txt 
 
 RUN git clone https://github.com/traveller59/spconv.git --recursive
@@ -108,6 +110,9 @@ RUN conda install --quiet --yes \
     jupyterhub\
     jupyterlab && \
     conda clean --all -f -y 
+WORKDIR /app
+
+RUN sudo chmod 777 /app -R
 #FROM jupyter/minimal-notebook
 
 #CMD echo $CUDA_LIB_PATH
